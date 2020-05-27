@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "634155720435",
+    "firebase_url": "https://volunteer-89d77.firebaseio.com",
+    "project_id": "volunteer-89d77",
+    "storage_bucket": "volunteer-89d77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634155720435:android:ef0d0287d9de587a51e186",
+        "android_client_info": {
+          "package_name": "com.example.principalHackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634155720435-4k21nqs1objfera2jbm761id89gfa6kp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgz72cPAhAew-DNJDLddtm28uZvpBrXq8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634155720435-4k21nqs1objfera2jbm761id89gfa6kp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
