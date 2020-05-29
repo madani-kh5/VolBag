@@ -22,11 +22,18 @@ class ServiceAuth{
     try {
       AuthResult result=await _auth.signInWithEmailAndPassword(email: email, password: password);
       FirebaseUser user=result.user;
+      //var userData=ServiceDatabase().getUser(user.uid);
+     // print(userData);
       return _fromFirebaseUser(user);
     }catch (e) {
       print(e.toString());
       return null;
     }
+  }
+
+  Future getCurrentUser() async{
+    final FirebaseUser user = await _auth.currentUser();
+    return user.uid;
   }
 
   Future RegisterEmail(String firstName,String lastName,String email,String password) async{

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:principalHackathon/screens/homeApp/home.dart';
 import 'package:principalHackathon/screens/homeApp/profil.dart';
 import 'package:principalHackathon/screens/servicesApp/welcomeSe.dart';
+import 'package:principalHackathon/services/auth.dart';
+import 'package:principalHackathon/services/database.dart';
 
 class BottomBarVol extends StatefulWidget {
   @override
@@ -9,7 +11,8 @@ class BottomBarVol extends StatefulWidget {
 }
 
 class _BottomBarVolState extends State<BottomBarVol> {
-
+  final ServiceAuth _auth=ServiceAuth();
+  final ServiceDatabase _data=ServiceDatabase();
   @override
   Widget build(BuildContext context) {
       return   BottomAppBar(
@@ -37,9 +40,12 @@ class _BottomBarVolState extends State<BottomBarVol> {
               backgroundColor:Color(0xFF00AEAE)
             ),
             
-            IconButton(icon: Icon(Icons.person), onPressed: (){
+            IconButton(icon: Icon(Icons.person), onPressed: ()async{             
+              var id=await _auth.getCurrentUser();
+              var userData =await _data.getUser(id);
+              print(userData);
               Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
-                return Profil();
+                return Profil([userData['firstName'],userData['lastName'],userData['email']]);
               }));
             }),
             

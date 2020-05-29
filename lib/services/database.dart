@@ -22,8 +22,11 @@ class ServiceDatabase{
   Future getUser(String uid) async{
     try {
       var userData=await userCollectionRef.document(uid).get();
-      return User.fromData(userData.data);
+      return userData.data;
+      //User.fromData(userData.data);
     } catch (e) {
+      print(e.toString());
+      return null;
     }
   }
 

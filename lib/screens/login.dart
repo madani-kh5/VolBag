@@ -157,7 +157,6 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                                 });
                               }else{
                               print("sign in correctly");
-                               var userData =await _data.getUser(result.uid);
                               Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
                                 return Home();
                               }));
