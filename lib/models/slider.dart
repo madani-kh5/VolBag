@@ -1,3 +1,4 @@
+// le modèle slider contient les données de notre page guide , sliderView 
 class SliderModel{
   String imagePath;
   String title;
@@ -54,7 +55,7 @@ List<SliderModel> getSlides(){
   sliderModel= new SliderModel();
   sliderModel.setImagePath("assets/images/medical.png");
   sliderModel.setTitle("aide médical");
-  sliderModel.setDesc("tvous pouvez même trouver de l'aide médical et de personnel soignant");
+  sliderModel.setDesc("vous pouvez même trouver de l'aide médical et de personnel soignant");
 
   slides.add(sliderModel);
 

@@ -5,7 +5,8 @@ import 'package:principalHackathon/services/auth.dart';
 import 'package:principalHackathon/services/database.dart';
 import 'package:principalHackathon/shared/loading.dart';
 
-
+// la page pour se connecter à notre application 
+// cette page utilise firebaseAuth
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -27,6 +28,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    // l'utilisation du Spinner
     return loading ? Loading() : Scaffold(
     
       backgroundColor: Colors.grey[200],
@@ -61,6 +63,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      //textfield email
                      TextFormField(
                        validator: (val)=> val.isEmpty ? "Entrez un Email" : null,
                        onChanged: (val){
@@ -98,7 +101,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                           border: Border(bottom:BorderSide(color: Colors.grey[300]))
                         ),
                       ),
-
+                      // textfield password
                       TextFormField(
                         validator: (val)=> val.length <6  ? "Le mot de passe doit etre 6+" : null,
                         onChanged: (val){
@@ -133,7 +136,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       ),
 
                       Padding(padding: EdgeInsets.only(top: 20)),
-
+                      // bouton de connexion 
                       RaisedButton(
                         color: Color(0xFF00AEAE),
                         elevation: 0,
@@ -144,9 +147,11 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                         ),
                         child: Text("Se connecter",style: TextStyle(color: Colors.white,fontSize: 16),),
                         onPressed: ()async{
+                          // validation des textfields
                           if(_formKey.currentState.validate()){
                             setState(() => loading=true );
                               dynamic result= await _auth.signInWithEmail(email,password);
+                              // vérification de notre base de données
                               if(result == null){
                                 setState(() {
                                   error=true;

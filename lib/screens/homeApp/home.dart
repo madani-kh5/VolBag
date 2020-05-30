@@ -6,6 +6,8 @@ import 'package:principalHackathon/screens/servicesApp/welcomeSe.dart';
 import 'package:principalHackathon/services/auth.dart';
 import 'package:principalHackathon/shared/bottomBar.dart';
 
+// c'est notre page principale qui conteint toutes les minis apps de notre appli
+// pour l'instant on à 3
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -22,8 +24,10 @@ class _HomeState extends State<Home> {
         elevation: 0,
         leading: Container(),
         actions: <Widget>[
+          // un bouton pour la déconnexion de notre appli
           FlatButton.icon(
             onPressed: () async{
+              // intéraction avec la base de données 
               await _auth.signOut();
                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
                 return Login();
@@ -71,6 +75,7 @@ class _HomeState extends State<Home> {
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
                     children: <Widget>[
+                      // la premier bouton concerne notre premiere mini app , la carte d'urgence
                       GestureDetector(
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
@@ -90,6 +95,7 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                       ),
+                      // le deuxième concerne la main de la communauté , et ca pour échanger des services entre les membres de notre communauté
                       GestureDetector(
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
@@ -109,6 +115,7 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                       ),
+                      // et la 3eme c'est pour l'aide médical 
                       GestureDetector(
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
@@ -142,7 +149,7 @@ class _HomeState extends State<Home> {
                             child: Column(
                               children: <Widget>[
                                 Image.asset("assets/images/plus.png",width:100 ,height:100 ,),
-                                Text("Aide au Développement",textAlign: TextAlign.center,style: TextStyle(color:Colors.white),)
+                                Text("Encore",textAlign: TextAlign.center,style: TextStyle(color:Colors.white),)
                               ],
                             ),
                           ),
@@ -155,6 +162,7 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
+      // la barre de navigation , bottom bar
       bottomNavigationBar: BottomBarVol(),
     );
   }

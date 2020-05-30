@@ -1,3 +1,4 @@
+// le modèle user concerne les données de notre utilisateur
 class User{
   String uid;
   String firstName;

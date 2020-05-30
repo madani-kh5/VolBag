@@ -3,7 +3,7 @@ import 'package:principalHackathon/screens/login.dart';
 import 'package:principalHackathon/services/auth.dart';
 import 'package:principalHackathon/services/mapLocal.dart';
 import 'package:principalHackathon/shared/bottomBar.dart';
-
+// la page principale de notre emergency map , carte d'urgence 
 class HomeEm extends StatefulWidget {
   @override
   _HomeEmState createState() => _HomeEmState();
@@ -88,7 +88,7 @@ class _HomeEmState extends State<HomeEm> {
             
             Padding(padding: EdgeInsets.only(bottom: 40)),
          
-            //  google map 
+            //  d'utilisation de notre google map
             ClipRRect(
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20),

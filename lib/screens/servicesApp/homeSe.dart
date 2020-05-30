@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:principalHackathon/screens/homeApp/home.dart';
 import 'package:principalHackathon/screens/login.dart';
 import 'package:principalHackathon/services/auth.dart';
 import 'package:principalHackathon/shared/bottomBar.dart';
-
+// la page principale de notre application , main de la communauté 
 class HomeSe extends StatefulWidget {
   @override
   _HomeSeState createState() => _HomeSeState();

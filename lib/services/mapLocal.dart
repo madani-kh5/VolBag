@@ -3,6 +3,7 @@ import 'package:geolocator/geolocator.dart';
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
+// google map pour la carte d'urgence , emergency map 
 
 class MapLocal extends StatefulWidget {
   @override
@@ -125,18 +126,5 @@ class _MapLocalState extends State<MapLocal> {
   }
 
 
-  /* 
-  content:Row(
-                      children: <Widget>[
-                        Text("Vous vous partager \n votre localisation en tant \n que volontaire",
-                          style: TextStyle(color: Colors.black),
-                          textAlign: TextAlign.center,
-                        ),
-                          Container(
-                            child: Switch(value:switchState, 
-                        onChanged: (bool s) => switchCas(s) ),
-                          )
-                      ],    
-                    ) 
-  */
+  
 }

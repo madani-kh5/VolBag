@@ -5,7 +5,7 @@ import 'package:principalHackathon/screens/homeApp/home.dart';
 import 'package:principalHackathon/screens/sliderView.dart';
 import 'package:provider/provider.dart';
 
-
+// c'est la page de lancement de notre application
 class Splash extends StatefulWidget {
   @override
   _SplashState createState() => _SplashState();

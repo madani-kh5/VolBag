@@ -3,10 +3,11 @@ import 'package:principalHackathon/models/user.dart';
 import 'package:principalHackathon/screens/login.dart';
 import 'package:principalHackathon/services/auth.dart';
 import 'package:principalHackathon/shared/bottomBar.dart';
-
+// cette page concerne le profile de notre utilisateur 
+// on recupère des données de notre bdd à partir d'un constructeur
 class Profil extends StatefulWidget {
   final List<String> data;
-  
+  // c'est notre constructeur
   Profil(this.data);
   @override
   _ProfilState createState() => _ProfilState();
@@ -16,6 +17,7 @@ class _ProfilState extends State<Profil> {
   ServiceAuth _auth=ServiceAuth();
   List<String> userData=[];
 
+  // intilialisation des données et mettre les données récupérer à partir de notre constructeur dans une liste
   @override
   void initState() {
     super.initState();
@@ -30,18 +32,8 @@ class _ProfilState extends State<Profil> {
         backgroundColor: Color(0xFF00AEAE),
         elevation: 0,
         leading: Container(),
-        actions: <Widget>[
-          FlatButton.icon(
-            onPressed: () async{
-              await _auth.signOut();
-               Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
-                return Login();
-              }));
-            },  
-            icon: Icon(Icons.person,color: Colors.white), 
-            label:Text("Déconnexion",style: TextStyle(color: Colors.white),) 
-            ),
-        ],
+        title: Text('Profile',style: TextStyle(color: Colors.white),),
+        centerTitle: true,
       ),
       body: Container(
         child: Column(
@@ -55,13 +47,16 @@ class _ProfilState extends State<Profil> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                // affiche d'un cercle qui contient les premieres lettre du nom et prénom de notre utilisateur
                 CircleAvatar(
                   backgroundColor: Colors.white,
                   maxRadius: 70,
                   child: Text(userData[1].substring(0,1)+userData[0].substring(0,1),style: TextStyle(fontSize: 60,color: Color(0xFF00AEAE)),),
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
+                // l'affichage du nom et du prénom 
                 Text(userData[1].toString()+" "+userData[0].toString(),style: TextStyle(fontSize: 20,color: Colors.white),textAlign: TextAlign.center,),
+                // l'affichage du l'adresse email                 
                 Text(userData[2].toString(),style: TextStyle(fontSize: 15,color: Colors.white),textAlign: TextAlign.center),
                 Padding(padding: EdgeInsets.only(bottom: 10)),            
               ],
@@ -73,6 +68,7 @@ class _ProfilState extends State<Profil> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
+                // un bouton pour mettre à jour les données d" l'utilisateur
                 RaisedButton(
                   color: Color(0xFF00AEAE),
                         elevation: 0,
@@ -84,6 +80,7 @@ class _ProfilState extends State<Profil> {
                   onPressed: (){},
                   child:Text("Mettre à jour\nVos données",style: TextStyle(color: Colors.white),textAlign: TextAlign.center,),
                 ),
+                // un bouton pour se déconnecter
                  RaisedButton(
                    color: Color(0xFF00AEAE),
                         elevation: 0,

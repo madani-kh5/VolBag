@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:principalHackathon/screens/homeApp/home.dart';
 import 'package:principalHackathon/services/auth.dart';
 import 'package:principalHackathon/shared/loading.dart';
-
+// c'est l'innterface de l'enregistrement d'un nouvel utilisateur , register
 class Register extends StatefulWidget {
   
 
@@ -25,6 +25,8 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
+
+    // l'utilisation du Spinner
     return loading ? Loading() : Scaffold(
       backgroundColor: Colors.grey[200],
       body: Stack(
@@ -211,9 +213,12 @@ class _RegisterState extends State<Register> {
                         ),
                         child: Text("Créer",style: TextStyle(color: Colors.white,fontSize: 16),),
                         onPressed: ()async{
+
+                          //validation des textfields
                           if(_formKey.currentState.validate()){
                               setState(() => loading=true );
                               dynamic result= await _auth.RegisterEmail(firstname,lastname,email,password);
+                              // vérification de notre bdd
                               if(result == null){
                                 setState(() {
                                   error=true;

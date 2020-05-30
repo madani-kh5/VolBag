@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:principalHackathon/models/slider.dart';
 import 'package:principalHackathon/screens/login.dart';
 
+// quand l'utilisateur utilise notre application pour la premiere fois 
+// on a préférer de le guider un peu pour qui ne soit pas perdu dans les fonctionnalités de notre appli
+// vu qu'il y en  a un peu trop 
 
+// les données de ce sliderView sont placées dans le modèle slider
 
 class SliderView extends StatefulWidget {
    
